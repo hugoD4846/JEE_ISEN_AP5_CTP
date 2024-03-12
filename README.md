@@ -1,5 +1,7 @@
 # LAB 07
 
+DUTOIT Hugo & HERBECQ Baptiste
+
 Welcome to the final lab!
 
 For this lab, you'll have to complete the code with implementations and annotations. You can follow the `TODO`'s inside the different Maven modules.
