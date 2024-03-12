@@ -5,9 +5,11 @@ import jakarta.persistence.*;
 import java.util.List;
 
 public class Student extends GenericEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public Student(String firstname, String lastname, String email) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 
     private String email;
     private String firstname;
@@ -16,10 +18,6 @@ public class Student extends GenericEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Grade> grades;
 
-    @Override
-    public long getId() {
-        return id;
-    }
 
     public String getEmail() {
         return email;
