@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentDAO extends JpaRepository<Student, Long> {
 
@@ -13,5 +14,6 @@ public interface StudentDAO extends JpaRepository<Student, Long> {
     List<Student> findAllWithGrades();
 
     @Query("SELECT s FROM Student s LEFT JOIN FETCH s.grades g LEFT JOIN FETCH g.subject LEFT JOIN FETCH g.type WHERE s.id = :studentId")
-    Student findByIdWithGrades(@Param("studentId")long studentId);
+    Optional<Student> findByIdWithGrades(@Param("studentId")long studentId);
+
 }
