@@ -6,20 +6,19 @@ import jakarta.persistence.*;
 import java.util.List;
 
 public class Type extends GenericEntity{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     private String name;
     private int weight;
 
+    public Type(String name, int weight) {
+        this.name = name;
+        this.weight = weight;
+    }
+
+    public Type() {
+    }
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
     private List<Grade> grades;
-
-    @Override
-    public long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
