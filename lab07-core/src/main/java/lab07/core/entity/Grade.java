@@ -2,9 +2,6 @@ package lab07.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 import java.sql.Date;
@@ -12,10 +9,6 @@ import java.sql.Date;
 @Entity
 @JsonIgnoreProperties({ "student" }) // leave it like this, it will help the JSON serialization
 public class Grade extends GenericEntity {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
 
   private Date date;
 
@@ -30,8 +23,15 @@ public class Grade extends GenericEntity {
   @ManyToOne
   private Type type;
 
-  public long getId() {
-    return this.id;
+  public Grade() {
+  }
+
+  public Grade(Date date, int grade, Student student, Subject subject, Type type) {
+    this.date = date;
+    this.grade = grade;
+    this.student = student;
+    this.subject = subject;
+    this.type = type;
   }
 
   public Date getDate() {
