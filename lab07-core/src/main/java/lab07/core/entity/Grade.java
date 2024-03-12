@@ -34,10 +34,6 @@ public class Grade extends GenericEntity {
     return this.id;
   }
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
   public Date getDate() {
     return this.date;
   }
