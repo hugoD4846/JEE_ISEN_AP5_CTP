@@ -1,16 +1,16 @@
 package lab07.core.entity;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-
-import java.sql.Date;
 
 @Entity
 @JsonIgnoreProperties({ "student" }) // leave it like this, it will help the JSON serialization
 public class Grade extends GenericEntity {
 
-  private Date date;
+  private LocalDate date;
 
   private int grade;
 
@@ -26,7 +26,7 @@ public class Grade extends GenericEntity {
   public Grade() {
   }
 
-  public Grade(Date date, int grade, Student student, Subject subject, Type type) {
+  public Grade(Student student, Subject subject, LocalDate date, Type type, int grade) {
     this.date = date;
     this.grade = grade;
     this.student = student;
@@ -34,11 +34,11 @@ public class Grade extends GenericEntity {
     this.type = type;
   }
 
-  public Date getDate() {
+  public LocalDate getDate() {
     return this.date;
   }
 
-  public void setDate(Date date) {
+  public void setDate(LocalDate date) {
     this.date = date;
   }
 

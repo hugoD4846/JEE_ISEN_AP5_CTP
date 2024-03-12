@@ -7,6 +7,7 @@ import lab07.core.entity.Subject;
 import lab07.core.entity.Type;
 import lab07.core.service.GradeService;
 import lab07.core.service.StudentService;
+import lab07.core.service.SubjectService;
 import lab07.core.service.TypeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,13 +24,13 @@ public class DataService {
     private final SubjectService subjectService;
     private final TypeService typeService;
 
-    public DataService(GradeService gradeService, StudentService studentService, SubjectService subjectService, TypeService typeService) {
+    public DataService(GradeService gradeService, StudentService studentService, SubjectService subjectService,
+            TypeService typeService) {
         this.gradeService = gradeService;
         this.studentService = studentService;
         this.subjectService = subjectService;
         this.typeService = typeService;
     }
-
 
     @PostConstruct
     public void initData() throws Exception {
@@ -46,12 +47,11 @@ public class DataService {
         typeService.deleteAll();
     }
 
-
-    private List<Type>  registerTypes() {
-       List<Type> types = new ArrayList<>();
-        types.add( createType("Homework", 1));
-        types.add( createType("Exam", 3));
-        types.add( createType("Project", 2));
+    private List<Type> registerTypes() {
+        List<Type> types = new ArrayList<>();
+        types.add(createType("Homework", 1));
+        types.add(createType("Exam", 3));
+        types.add(createType("Project", 2));
         return types;
     }
 
@@ -63,7 +63,6 @@ public class DataService {
         typeService.save(type);
         return type;
     }
-
 
     private Map<String, Subject> registerSubjects() {
         Map<String, Subject> subjects = new HashMap<>();
@@ -77,7 +76,6 @@ public class DataService {
         return subjects;
     }
 
-
     private Subject createSubject(String subjectName, int weight) {
         System.out.println("Registring " + subjectName);
         Subject subject = new Subject();
@@ -86,8 +84,6 @@ public class DataService {
         subjectService.save(subject);
         return subject;
     }
-
-
 
     private void registerStudents(Map<String, Subject> subjects, List<Type> types) {
         Random random = new Random();
@@ -126,19 +122,18 @@ public class DataService {
         students.add(new Student("Léonie", "WOLFCARIUS", "leonie.wolfcarius@student.junia.com"));
         students.add(new Student("Clément", "ZAJAC", "clement.zajac@student.junia.com"));
 
-        for(Student student:students){
+        for (Student student : students) {
             List<Grade> grades = new ArrayList<>();
-            for(Subject subject:subjects.values()){
+            for (Subject subject : subjects.values()) {
                 for (int i = 0; i < 5 + random.nextInt(6); i++) {
                     LocalDate localDate = LocalDate.now().minusDays(random.nextInt(200));
                     Type type = types.get(random.nextInt(3));
-                    grades.add(new Grade(student,subject, localDate, type,10 + random.nextInt(11)));
+                    grades.add(new Grade(student, subject, localDate, type, 10 + random.nextInt(11)));
                 }
             }
             student.setGrades(grades);
             studentService.save(student);
         }
-
 
     }
 }

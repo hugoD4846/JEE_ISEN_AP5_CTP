@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class GradeService {
 
-    // TODO make it compile by creating the necessary classes (beans) and methods
-
     private final GradeDAO gradeDAO;
     private final TypeService typeService;
     private final StudentService studentService;

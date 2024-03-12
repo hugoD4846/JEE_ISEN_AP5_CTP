@@ -11,9 +11,8 @@ import java.util.List;
 @Transactional
 public class StudentService {
 
-    //TODO make it compile by creating the necessary classes (beans) and methods
-
     private final StudentDAO studentDAO;
+
     public StudentService(StudentDAO studentDAO) {
         this.studentDAO = studentDAO;
     }
@@ -30,7 +29,7 @@ public class StudentService {
         return studentDAO.findAllWithGrades();
     }
 
-    public void save(Student student){
+    public void save(Student student) {
         studentDAO.save(student);
     }
 }
