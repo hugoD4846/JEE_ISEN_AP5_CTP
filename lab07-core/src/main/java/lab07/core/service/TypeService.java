@@ -27,4 +27,8 @@ public class TypeService {
     public void save(Type type) {
         typeDAO.save(type);
     }
+
+    public Type findById(long id) {
+        return typeDAO.findById(id).orElse(null);
+    }
 }
