@@ -14,4 +14,12 @@ public class SubjectService {
   public Subject findById(long subjectId) {
     return subjectDAO.findById(subjectId).orElse(null);
   }
+
+  public void deleteAll() {
+    subjectDAO.deleteAll();
+  }
+
+  public void save(Subject subject) {
+    subjectDAO.save(subject);
+  }
 }
