@@ -6,6 +6,8 @@ import lab07.core.entity.Student;
 import lab07.core.entity.Subject;
 import lab07.core.entity.Type;
 import lab07.core.service.GradeService;
+import lab07.core.service.StudentService;
+import lab07.core.service.TypeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
