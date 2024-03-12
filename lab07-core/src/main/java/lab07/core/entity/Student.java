@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
 public class Student extends GenericEntity {
     public Student(String firstname, String lastname, String email) {
         this.email = email;
@@ -17,6 +18,10 @@ public class Student extends GenericEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Grade> grades;
+
+    public Student() {
+
+    }
 
 
     public String getEmail() {

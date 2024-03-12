@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -15,12 +16,15 @@ public class Grade extends GenericEntity {
   private int grade;
 
   @ManyToOne
+  @JoinColumn(name="student_id", nullable=false)
   private Student student;
 
   @ManyToOne
+  @JoinColumn(name="subject_id", nullable=false)
   private Subject subject;
 
   @ManyToOne
+  @JoinColumn(name="type_id", nullable=false)
   private Type type;
 
   public Grade() {

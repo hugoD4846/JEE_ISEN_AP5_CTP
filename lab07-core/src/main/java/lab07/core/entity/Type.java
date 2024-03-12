@@ -4,7 +4,9 @@ package lab07.core.entity;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
+@Entity
 public class Type extends GenericEntity{
     private String name;
     private int weight;
@@ -17,8 +19,8 @@ public class Type extends GenericEntity{
     public Type() {
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
-    private List<Grade> grades;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "type")
+    private Set<Grade> grades;
 
     public String getName() {
         return name;
@@ -36,11 +38,11 @@ public class Type extends GenericEntity{
         this.weight = weight;
     }
 
-    public List<Grade> getGrades() {
+    public Set<Grade> getGrades() {
         return grades;
     }
 
-    public void setGrades(List<Grade> grades) {
+    public void setGrades(Set<Grade> grades) {
         this.grades = grades;
     }
 }
