@@ -1,6 +1,7 @@
 package lab07.core.service;
 
 import jakarta.transaction.Transactional;
+import lab07.core.dao.GradeDAO;
 import lab07.core.entity.Grade;
 import org.springframework.stereotype.Service;
 
@@ -8,14 +9,15 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class GradeService {
 
-    //TODO make it compile by creating the necessary classes (beans) and methods
+    // TODO make it compile by creating the necessary classes (beans) and methods
 
     private final GradeDAO gradeDAO;
     private final TypeService typeService;
     private final StudentService studentService;
     private final SubjectService subjectService;
 
-    public GradeService(GradeDAO gradeDAO, TypeService typeService, StudentService studentService, SubjectService subjectService) {
+    public GradeService(GradeDAO gradeDAO, TypeService typeService, StudentService studentService,
+            SubjectService subjectService) {
         this.gradeDAO = gradeDAO;
         this.typeService = typeService;
         this.studentService = studentService;
