@@ -1,13 +1,9 @@
 package lab07.core.entity;
 
-
 import jakarta.persistence.*;
 
-import java.util.List;
-import java.util.Set;
-
 @Entity
-public class Type extends GenericEntity{
+public class Type extends GenericEntity {
     private String name;
     private int weight;
 

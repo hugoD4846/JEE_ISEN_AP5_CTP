@@ -1,7 +1,5 @@
 package lab07.web.dto;
 
-import lab07.web.data.Grade;
-
 import java.util.List;
 
 public class StudentDTO {

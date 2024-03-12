@@ -3,7 +3,6 @@ package lab07.web.data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Grade implements Comparable<Grade> {
 
@@ -26,7 +25,6 @@ public class Grade implements Comparable<Grade> {
         this.type = type;
         this.date = date;
     }
-
 
     public int getGrade() {
         return grade;

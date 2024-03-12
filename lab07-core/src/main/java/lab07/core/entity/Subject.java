@@ -2,9 +2,7 @@ package lab07.core.entity;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Subject extends GenericEntity {

@@ -6,15 +6,13 @@ import lab07.core.entity.Type;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
 public class TypeService {
 
-    //TODO make it compile by creating the necessary classes (beans) and methods
-
     private final TypeDAO typeDAO;
+
     public TypeService(TypeDAO typeDAO) {
         this.typeDAO = typeDAO;
     }
