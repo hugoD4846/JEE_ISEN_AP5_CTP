@@ -4,17 +4,10 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Subject extends GenericEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
     private String name;
 
@@ -23,8 +16,13 @@ public class Subject extends GenericEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
     private List<Grade> grades;
 
-    public long getId() {
-        return this.id;
+    public Subject() {
+    }
+
+    public Subject(String name, int weight, List<Grade> grades) {
+        this.name = name;
+        this.weight = weight;
+        this.grades = grades;
     }
 
     public String getName() {
