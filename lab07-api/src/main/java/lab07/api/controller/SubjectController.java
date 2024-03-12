@@ -19,7 +19,7 @@ public class SubjectController {
     }
 
     @GetMapping("/{id}")
-    public Subject getById(@PathVariable long id) {
+    public Subject getById(@PathVariable("id") long id) {
         return subjectService.findById(id);
     }
 

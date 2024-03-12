@@ -13,16 +13,12 @@ public class Subject extends GenericEntity {
 
     private int weight;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
-    private List<Grade> grades;
-
     public Subject() {
     }
 
     public Subject(String name, int weight, List<Grade> grades) {
         this.name = name;
         this.weight = weight;
-        this.grades = grades;
     }
 
     public String getName() {
@@ -40,13 +36,4 @@ public class Subject extends GenericEntity {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-
-    public List<Grade> getGrades() {
-        return this.grades;
-    }
-
-    public void setGrades(List<Grade> grades) {
-        this.grades = grades;
-    }
-
 }

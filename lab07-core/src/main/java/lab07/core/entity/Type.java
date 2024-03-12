@@ -19,9 +19,6 @@ public class Type extends GenericEntity{
     public Type() {
     }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "type")
-    private Set<Grade> grades;
-
     public String getName() {
         return name;
     }
@@ -38,11 +35,4 @@ public class Type extends GenericEntity{
         this.weight = weight;
     }
 
-    public Set<Grade> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(Set<Grade> grades) {
-        this.grades = grades;
-    }
 }

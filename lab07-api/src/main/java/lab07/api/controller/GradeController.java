@@ -3,12 +3,7 @@ package lab07.api.controller;
 import lab07.core.entity.Grade;
 import lab07.core.service.GradeService;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/grades")
@@ -24,7 +19,7 @@ public class GradeController {
     // TODO expose the correct APIs
 
     @GetMapping("/{gradeId}")
-    public Grade findById(@PathVariable long gradeId) {
+    public Grade findById(@PathVariable("gradeId") long gradeId) {
         return gradeService.findById(gradeId);
     }
 
@@ -35,12 +30,13 @@ public class GradeController {
     }
 
     @PostMapping("")
-    public Grade save(@RequestBody Grade grade) {
-        save(grade);
+    public Grade save(@RequestBody Grade grade, @RequestParam("studentId") long studentId, @RequestParam("subjectId") long subjectId) {
+        gradeService.save(grade, studentId, subjectId);
         return gradeService.findById(grade.getId());
     }
 
-    public void delete(@PathVariable long gradeId) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id")long gradeId) {
         gradeService.deleteGrade(gradeId);
     }
 
