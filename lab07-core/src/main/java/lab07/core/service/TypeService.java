@@ -5,6 +5,8 @@ import lab07.core.dao.TypeDAO;
 import lab07.core.entity.Type;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class TypeService {
@@ -16,8 +18,8 @@ public class TypeService {
         this.typeDAO = typeDAO;
     }
 
-    public void findAll() {
-        typeDAO.findAll();
+    public List<Type> findAll() {
+        return typeDAO.findAll();
     }
 
     public void deleteAll() {
